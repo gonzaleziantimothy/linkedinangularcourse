@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="columns" id="search">
+        <h1>Products</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius labore in, asperiores impedit assumenda vel temporibus tenetur earum possimus reprehenderit repudiandae quisquam, perferendis dicta? Esse ea vitae repellendus odio? Excepturi!</p>
+        <form #form="ngForm" (ngSubmit)="addProduct(form.value)">
+            <input type="text" placeholder="Product Name" name="title" [(ngModel)]="title">
+            <textarea placeholder="Product Description" name ="description" [(ngModel)]="description" rows="3"></textarea>
+            <button id="btn" type="submit">Add Product</button>
+        </form>
+    </div>
+    <div class="columns" id="search">
+        <p id="results-label">{{products.length}}Results</p>
+        <ul id="products-list">
+            <li *ngFor="let product of products; let i=index"> {{product.title}}
+                <img src="assets/delete.png" (click)="removeProduct(i)">
+                <p>{{ product.description }}</p>
+            </li>
+        </ul>
+    </div>
+</div>
